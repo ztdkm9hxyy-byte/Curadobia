@@ -64,7 +64,8 @@ main{padding:48px 52px;max-width:1440px;margin:0 auto}
 .chart-wrap{position:relative;height:240px}
 
 /* BRAND TABLE */
-.brow{display:grid;grid-template-columns:130px 1fr 90px 60px;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(26,22,18,.04)}
+.brow{display:grid;grid-template-columns:130px 1fr 90px 52px 60px;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(26,22,18,.04)}
+.bpieces{font-size:11px;color:var(--ink3);text-align:right;white-space:nowrap}
 .brow:last-child{border-bottom:none}
 .bname{font-size:12px;font-weight:500;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .btrack{height:6px;background:var(--goldPale);border-radius:3px;overflow:hidden}
@@ -98,6 +99,31 @@ main{padding:48px 52px;max-width:1440px;margin:0 auto}
 
 @media(max-width:1100px){.kpi-row{grid-template-columns:repeat(3,1fr)}.chart-row{grid-template-columns:1fr}.ov3{grid-template-columns:1fr 1fr}}
 @media(max-width:768px){main,header,.tabs{padding-left:20px;padding-right:20px}.kpi-row{grid-template-columns:1fr 1fr}.ev-cards{grid-template-columns:1fr 1fr}.insights{grid-template-columns:1fr}.ov3{grid-template-columns:1fr}}
+
+/* INSIGHTS PANEL */
+.ins-panel-title{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:300;margin-bottom:6px}
+.ins-panel-sub{font-size:14px;color:var(--ink3);margin-bottom:40px}
+.ins-section-label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--goldD);font-weight:600;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.ins-section-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.ins-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:40px}
+.ins-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:26px 24px;position:relative;overflow:hidden}
+.ins-card.dark{background:var(--ink);border-color:transparent}
+.ins-card-icon{font-size:20px;margin-bottom:10px}
+.ins-card-tag{display:inline-block;font-size:9px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:12px}
+.tag-green{background:#E9F2E9;color:#3A7A3A}
+.tag-red{background:#F2ECE9;color:#8A4A3A}
+.tag-gold{background:var(--goldPale);color:var(--goldD)}
+.tag-blue{background:#E9EEF2;color:#3A5A7A}
+.ins-card-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;margin-bottom:10px;line-height:1.2}
+.ins-card.dark .ins-card-title{color:var(--gold)}
+.ins-card-body{font-size:13px;line-height:1.8;color:var(--ink2)}
+.ins-card.dark .ins-card-body{color:rgba(245,240,232,.75)}
+.ins-card-body strong{font-weight:600;color:var(--ink)}
+.ins-card.dark .ins-card-body strong{color:var(--gold)}
+.ins-card-action{margin-top:14px;padding-top:14px;border-top:1px solid var(--border);font-size:12px;font-weight:600;color:var(--goldD);display:flex;align-items:center;gap:6px}
+.ins-card.dark .ins-card-action{border-top-color:rgba(255,255,255,.1);color:var(--gold)}
+.ins-3{grid-template-columns:1fr 1fr 1fr}
+@media(max-width:900px){.ins-grid{grid-template-columns:1fr}.ins-3{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -116,6 +142,7 @@ main{padding:48px 52px;max-width:1440px;margin:0 auto}
   <div class="tab" onclick="go('e2')">evento 02 · mai/25</div>
   <div class="tab" onclick="go('e3')">evento 03 · nov/25</div>
   <div class="tab" onclick="go('e4')">evento 04 · mai/26</div>
+  <div class="tab" onclick="go('insights')">✦ insights de marketing</div>
 </div>
 
 <main>
@@ -250,6 +277,101 @@ main{padding:48px 52px;max-width:1440px;margin:0 auto}
   </div>
 </div>
 
+<!-- INSIGHTS DE MARKETING -->
+<div id="panel-insights" class="panel">
+  <div class="ins-panel-title">insights de marketing</div>
+  <div class="ins-panel-sub">análise dos 4 eventos · o que funcionou, o que não funcionou e o que fazer a seguir</div>
+
+  <!-- O QUE DEU CERTO -->
+  <div class="ins-section-label">✓ continue fazendo — o que deu certo</div>
+  <div class="ins-grid">
+    <div class="ins-card">
+      <div class="ins-card-icon">📈</div>
+      <span class="ins-card-tag tag-green">Ticket médio</span>
+      <div class="ins-card-title">Clientes comprando mais a cada evento</div>
+      <div class="ins-card-body">O ticket médio subiu de <strong>R$ 1.273</strong> (Ev.1) para <strong>R$ 2.078</strong> (Ev.4) — um crescimento de +63% em 18 meses. No mesmo período, as peças por pedido foram de 2,1 para 2,65. Isso indica que o público está mais confiante e comprando com menos hesitação.</div>
+      <div class="ins-card-action">→ Continue estimulando combos e looks completos no evento</div>
+    </div>
+    <div class="ins-card">
+      <div class="ins-card-icon">🏷️</div>
+      <span class="ins-card-tag tag-green">Mix de marcas</span>
+      <div class="ins-card-title">Nauanin, Angela Motta e Reptilia como pilares</div>
+      <div class="ins-card-body">Nauanin esteve presente em todos os 4 eventos e liderou em volume de peças (20→37 peças). Angela Motta cresceu 124% entre Ev.2 e Ev.4 em faturamento. Reptilia foi de estreia no Ev.2 para a <strong>maior marca em faturamento no Ev.4</strong> (R$ 22.328). São as três âncoras do evento.</div>
+      <div class="ins-card-action">→ Garanta presença dessas marcas em todos os próximos eventos</div>
+    </div>
+    <div class="ins-card">
+      <div class="ins-card-icon">🧥</div>
+      <span class="ins-card-tag tag-green">Terceira Peça</span>
+      <div class="ins-card-title">A nova categoria que explodiu</div>
+      <div class="ins-card-body">Terceira Peça foi de <strong>R$ 2.076</strong> no Ev.1 para <strong>R$ 31.756</strong> no Ev.4 — crescimento de +1.431% e hoje é a <strong>3ª maior categoria</strong>, representando 21,5% do faturamento. Jaquetas como "Tô Pronta", "De Peso" e "Viajante" dominaram o top de produtos.</div>
+      <div class="ins-card-action">→ Amplie o número de marcas com terceira peça no mix</div>
+    </div>
+    <div class="ins-card">
+      <div class="ins-card-icon">💳</div>
+      <span class="ins-card-tag tag-green">Parcelamento</span>
+      <div class="ins-card-title">4x como forma favorita de pagamento</div>
+      <div class="ins-card-body">No Ev.4, <strong>76 das 188 transações</strong> foram em 4x — a forma mais usada. Crédito parcelado (2x a 5x) representa mais de 83% das vendas. Isso indica que o parcelamento é viabilizador de compras mais altas e diretamente ligado ao crescimento do ticket.</div>
+      <div class="ins-card-action">→ Continue com parcelamento e sinalize claramente as condições no evento</div>
+    </div>
+  </div>
+
+  <!-- O QUE NÃO DEU CERTO -->
+  <div class="ins-section-label">✗ reveja — o que não performou bem</div>
+  <div class="ins-grid">
+    <div class="ins-card dark">
+      <div class="ins-card-icon">📉</div>
+      <span class="ins-card-tag tag-red">Queda de pedidos</span>
+      <div class="ins-card-title">Ev.4 cresceu em faturamento, mas perdeu pedidos</div>
+      <div class="ins-card-body">O Ev.4 teve o recorde de faturamento (R$ 147.552), mas apenas <strong>71 pedidos</strong> — 11 a menos que o Ev.3 (82). O crescimento veio inteiramente do ticket mais alto. Isso pode indicar que o público que chegou não converteu, ou que houve menos pessoas no evento.</div>
+      <div class="ins-card-action">→ Investigar: queda de divulgação? Lista menor? Fila de espera não resolvida?</div>
+    </div>
+    <div class="ins-card dark">
+      <div class="ins-card-icon">🏬</div>
+      <span class="ins-card-tag tag-red">Mix encolheu</span>
+      <div class="ins-card-title">Ev.4 teve o menor número de marcas: apenas 12</div>
+      <div class="ins-card-body">Os eventos 1, 2 e 3 tiveram entre <strong>18 e 19 marcas</strong>. O Ev.4 caiu para <strong>12 marcas</strong> — queda de 37%. Isso pode ter limitado a variedade e reduzido o número de clientes que encontraram algo do seu estilo, explicando em parte a queda em pedidos.</div>
+      <div class="ins-card-action">→ Voltar ao patamar de 17–20 marcas por evento, com diversidade de categoria e preço</div>
+    </div>
+    <div class="ins-card dark">
+      <div class="ins-card-icon">👟</div>
+      <span class="ins-card-tag tag-red">Sapato sumiu</span>
+      <div class="ins-card-title">Categoria calçado desapareceu no Ev.4</div>
+      <div class="ins-card-body">Sapatos representaram R$ 11.704 (14,8%) no Ev.1 e R$ 12.772 (10,6%) no Ev.2. No Ev.3 caiu para R$ 3.789 e no Ev.4 <strong>não aparece</strong>. É uma categoria que o público comprava bem e que está sendo deixada de fora do mix — perda direta de faturamento.</div>
+      <div class="ins-card-action">→ Trazer de volta marcas de calçado: Paula Ferber estava entre as top 1 do Ev.1</div>
+    </div>
+    <div class="ins-card dark">
+      <div class="ins-card-icon">📦</div>
+      <span class="ins-card-tag tag-red">Acessório em queda livre</span>
+      <div class="ins-card-title">Categoria virou residual</div>
+      <div class="ins-card-body">Acessórios somaram R$ 12.090 (15,3%) no Ev.1. No Ev.4: apenas <strong>R$ 3.360 (2,3%)</strong>. A categoria foi praticamente abandonada do mix. Como itens de menor valor, acessórios são excelente ferramenta para aumentar o número de peças por pedido e o ticket médio.</div>
+      <div class="ins-card-action">→ Reintroduzir marcas de acessório como estratégia de upsell no evento</div>
+    </div>
+  </div>
+
+  <!-- PROPOSTAS PARA O PRÓXIMO EVENTO -->
+  <div class="ins-section-label">→ propostas para o próximo evento</div>
+  <div class="ins-grid ins-3">
+    <div class="ins-card">
+      <div class="ins-card-icon">🎯</div>
+      <span class="ins-card-tag tag-gold">Mix</span>
+      <div class="ins-card-title">Monte um mix de 18–20 marcas com variedade de categoria</div>
+      <div class="ins-card-body">Garanta ao menos: <strong>3–4 marcas de terceira peça</strong> (tendência comprovada), <strong>2 marcas de calçado</strong> (Paula Ferber, Miti), <strong>2–3 de acessório</strong> para upsell. Pilares: Reptilia, Angela Motta, Nauanin, Plural. Equilibre preço médio entre R$ 500–R$ 1.500 por peça.</div>
+    </div>
+    <div class="ins-card">
+      <div class="ins-card-icon">👥</div>
+      <span class="ins-card-tag tag-gold">Conversão</span>
+      <div class="ins-card-title">Trabalhe a conversão dentro do evento</div>
+      <div class="ins-card-body">Com 71 pedidos no Ev.4 e ticket de R$ 2.078, uma melhoria de +15 pedidos (voltando ao patamar do Ev.3) adicionaria <strong>~R$ 31.000</strong> de faturamento sem nenhuma mudança de preço. Isso pode vir de: lista de confirmados maior, atendimento mais ativo, look books por estilo no local.</div>
+    </div>
+    <div class="ins-card">
+      <div class="ins-card-icon">📊</div>
+      <span class="ins-card-tag tag-gold">Dados</span>
+      <div class="ins-card-title">Rastreie quem não comprou — não só quem comprou</div>
+      <div class="ins-card-body">A grande lacuna nos dados é: quantas pessoas foram no evento mas não compraram? E por quê? Criar um <strong>formulário pós-evento simples</strong> (3 perguntas) para quem saiu sem comprar revelaria muito mais do que os dados de venda — e abriria o caminho para melhorar a conversão estruturalmente.</div>
+    </div>
+  </div>
+</div>
+
 </main>
 
 <script>
@@ -258,6 +380,13 @@ const D={
   e2:{marcas:{"Nauanin":17630,"Reptilia":17392,"Fernanda Yamamoto":10455,"Angela Motta":9428,"MyBasic":9388,"Luiza Perea":9190},produtos:{"A BOTA PRETA":6210,"CALÇA AZUL":5588,"PANTALONA MYBASIC MARROM":5552,"BLUSA MODERNETY":5309,"JAQUETA CHEGUEI":3891,"VESTIDO CLEANZÃO":3870},cats:{"Parte de Cima":34505,"Parte de Baixo":32375,"Peça Única":17089,"Terceira Peça":16057,"Sapato":12772,"Acessório":6090,"Bolsa":1720},tams:{"P":24688,"M":18894,"38":14905,"1":7870,"PP":7740,"G":5591,"38/40":5079}},
   e3:{marcas:{"Plural":22073,"Nauanin":17815,"Angela Motta":17254,"Toruss":15092,"Reptilia":11715,"Lounge 39":9814},produtos:{"CALÇA WOW":8715,"VESTIDO CHIQUETOSO":6970,"CALÇA RESOLVEDORA":5390,"BLUSA PAH":4840,"BLUSA AJUSTEX":3738,"PANTALONA FLUIDONA":3720},cats:{"Parte de Baixo":48634,"Parte de Cima":43806,"Peça Única":28546,"Terceira Peça":8842,"Bolsa":8161,"Acessório":4664,"Sapato":3789},tams:{"M":26474,"P":26381,"U":15305,"38":14460,"PP":12899,"G":6866,"34":6227}},
   e4:{marcas:{"Reptilia":22328,"Angela Motta":21068,"Stella Bastos":20410,"Plural":17655,"Nauanin":17265,"Fernanda Yamamoto":14120},produtos:{"JAQUETA TÔ PRONTA":7740,"CALÇA ANDA SOZINHA":5120,"JAQUETA DE PESO":4598,"BLAZER CHIQUÉEERRIMO":4470,"BOLSAS/CLUTCHs":4000,"JAQUETA VIAJANTE":3891},cats:{"Parte de Cima":49166,"Parte de Baixo":47038,"Terceira Peça":31756,"Bolsa":10610,"Peça Única":5622,"Acessório":3360},tams:{"P":33412,"M":22901,"único":16964,"36":13516,"38":12698,"PP":12181,"42":7715}}
+};
+
+const PECAS={
+  e1:{"Nauanin":20,"Mybasic":18,"D-Aura":17,"Stella Bastos":11,"Vehr":10,"Paula Marques":9,"Revival":7,"Paula Ferber":7},
+  e2:{"Nauanin":32,"Reptilia":16,"Revival":15,"Fernanda Yamamoto":14,"Jörg":14,"Mybasic":12,"Angela Motta":10,"Sarpi":9},
+  e3:{"Nauanin":37,"Plural":33,"Toruss":25,"Angela Motta":17,"Reptilia":15,"Lounge 39":11,"Jorg":10,"Olive You":10},
+  e4:{"Nauanin":34,"Plural":29,"Angela Motta":27,"Reptilia":24,"Stella Bastos":19,"Fernanda Yamamoto":19,"Esthera":9,"Lounge 39":8}
 };
 
 const LABELS=['Dez/24','Mai/25','Nov/25','Mai/26'];
@@ -275,21 +404,32 @@ function go(id){
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
   document.getElementById('panel-'+id).classList.add('active');
-  ['overview','e1','e2','e3','e4'].forEach((v,i)=>{ if(v===id) document.querySelectorAll('.tab')[i].classList.add('active'); });
+  ['overview','e1','e2','e3','e4','insights'].forEach((v,i)=>{ if(v===id) document.querySelectorAll('.tab')[i].classList.add('active'); });
 }
 
 function hexRgb(h){return[parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)].join(',')}
 
 // brand table
-function brandTable(id,data,prev){
+function brandTable(id,data,prev,pecas){
   const el=document.getElementById(id); if(!el)return;
   const max=Math.max(...Object.values(data));
-  el.innerHTML=Object.entries(data).map(([n,v])=>{
+  // build header
+  el.innerHTML=`<div class="brow" style="border-bottom:1px solid rgba(26,22,18,0.1);margin-bottom:4px;padding-bottom:6px">
+    <div style="font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);font-weight:600">Marca</div>
+    <div></div>
+    <div style="font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);font-weight:600;text-align:right">Faturamento</div>
+    <div style="font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);font-weight:600;text-align:right">Peças</div>
+    <div style="font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);font-weight:600;text-align:right">vs ant.</div>
+  </div>`+Object.entries(data).map(([n,v])=>{
     let delta='';
     if(!prev){delta=`<span class="bdelta bd-na">—</span>`;}
     else if(!prev[n]){delta=`<span class="bdelta bd-new">novo</span>`;}
     else{const p=(((v-prev[n])/prev[n])*100).toFixed(0);delta=`<span class="bdelta ${p>=0?'bd-up':'bd-dn'}">${p>=0?'↑ +':'↓ '}${Math.abs(p)}%</span>`;}
-    return`<div class="brow"><div class="bname" title="${n}">${n}</div><div class="btrack"><div class="bfill" style="width:${(v/max*100).toFixed(1)}%"></div></div><div class="bval">R$ ${v.toLocaleString('pt-BR')}</div>${delta}</div>`;
+    // find piece count — match by normalized name
+    const normN=n.toLowerCase().replace(/[^a-z0-9]/g,'');
+    const pc=pecas?Object.entries(pecas).find(([k])=>k.toLowerCase().replace(/[^a-z0-9]/g,'')==normN):null;
+    const piecesHtml=pc?`<div class="bpieces">${pc[1]} pç</div>`:`<div class="bpieces">—</div>`;
+    return`<div class="brow"><div class="bname" title="${n}">${n}</div><div class="btrack"><div class="bfill" style="width:${(v/max*100).toFixed(1)}%"></div></div><div class="bval">R$ ${v.toLocaleString('pt-BR')}</div>${piecesHtml}${delta}</div>`;
   }).join('');
 }
 
@@ -369,10 +509,10 @@ window.addEventListener('DOMContentLoaded',()=>{
   ovBar('ov-liq', LIQS,'#8C6A3F', LIQ_G, v=>'R$'+Math.round(v/1000)+'k');
 
   // events
-  brandTable('br-e1',D.e1.marcas,null);   donut('cat-e1',D.e1.cats); tamBar('tam-e1',D.e1.tams);
-  brandTable('br-e2',D.e2.marcas,D.e1.marcas); donut('cat-e2',D.e2.cats); tamBar('tam-e2',D.e2.tams);
-  brandTable('br-e3',D.e3.marcas,D.e2.marcas); donut('cat-e3',D.e3.cats); tamBar('tam-e3',D.e3.tams);
-  brandTable('br-e4',D.e4.marcas,D.e3.marcas); donut('cat-e4',D.e4.cats); tamBar('tam-e4',D.e4.tams);
+  brandTable('br-e1',D.e1.marcas,null,PECAS.e1);   donut('cat-e1',D.e1.cats); tamBar('tam-e1',D.e1.tams);
+  brandTable('br-e2',D.e2.marcas,D.e1.marcas,PECAS.e2); donut('cat-e2',D.e2.cats); tamBar('tam-e2',D.e2.tams);
+  brandTable('br-e3',D.e3.marcas,D.e2.marcas,PECAS.e3); donut('cat-e3',D.e3.cats); tamBar('tam-e3',D.e3.tams);
+  brandTable('br-e4',D.e4.marcas,D.e3.marcas,PECAS.e4); donut('cat-e4',D.e4.cats); tamBar('tam-e4',D.e4.tams);
 
   // products (no delta)
   ['e1','e2','e3','e4'].forEach(ev=>{
